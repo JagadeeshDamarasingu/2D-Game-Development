@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
-
+/// <summary>
+/// handles player animations, movements and collisions
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
