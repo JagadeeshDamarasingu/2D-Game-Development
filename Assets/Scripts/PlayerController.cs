@@ -12,10 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _playerRigidbody2D;
     private static readonly int Speed = Animator.StringToHash("speed");
-    private static readonly int DidCrouch = Animator.StringToHash("didCrouch");
     private static readonly int DidJump = Animator.StringToHash("didJump");
-    private static readonly int ShouldPlayDeathAnimation = Animator.StringToHash("shouldPlayDeathAnimation");
-
 
     private void Awake()
     {
@@ -25,8 +22,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         var horizontalSpeed = Input.GetAxisRaw("Horizontal");
-        var verticalSpeed = Input.GetAxisRaw("Vertical");
-
         ApplyHorizontalSpeed(horizontalSpeed);
         ApplyJumpMechanics(Input.GetAxisRaw("Jump"));
         MoveCharacter(horizontalSpeed);
@@ -60,18 +55,5 @@ public class PlayerController : MonoBehaviour
         var scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * horizontalSpeed < 0 ? -1f : 1f;
         transform.localScale = scale;
-    }
-
-
-    public void OnPlayerDead()
-    {
-        Debug.Log("OnPlayerDead");
-        animator.SetBool(ShouldPlayDeathAnimation, true);
-    }
-
-    private void OnDeathAnimationComplete()
-    {
-        Debug.Log("OnDeathAnimationComplete");
-        animator.SetBool(ShouldPlayDeathAnimation, false);
     }
 }

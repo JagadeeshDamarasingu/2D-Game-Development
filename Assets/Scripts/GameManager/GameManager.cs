@@ -75,11 +75,12 @@ public sealed class GameManager
         _livesRemaining--;
         if (HasLivesRemaining())
         {
+            SceneManager.LoadScene("MainScene");
             UpdateLivesRemainingListeners();
         }
         else
         {
-            SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene("LobbyScene");
             ResetCurrentLevel();
         }
     }
@@ -108,7 +109,6 @@ public sealed class GameManager
     public void OnCollectibleCollected()
     {
         _currentLevelScore += RewardPointForCollectible;
-        Debug.Log("current score: " + _currentLevelScore);
         UpdateScoreListeners();
     }
 
