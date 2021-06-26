@@ -15,7 +15,7 @@ public class DeathCollisionColliderController : MonoBehaviour
         {
             if (GameManager.Instance.HasLivesRemaining())
             {
-                GameManager.Instance.onLifeLost();
+                GameManager.Instance.OnLifeLost();
                 SceneManager.LoadScene("MainScene");
             }
             else
