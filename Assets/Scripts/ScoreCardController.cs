@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Controls the score shown in UI
+/// </summary>
 public class ScoreCardController : MonoBehaviour, IScoreChangedListener
 {
     private TextMeshProUGUI _scoreCardText;
@@ -27,6 +30,6 @@ public class ScoreCardController : MonoBehaviour, IScoreChangedListener
 
     private void OnDestroy()
     {
-        GameManager.Instance.RemoveScoreChangeListener(this);
+        GameManager.Instance.RemoveScoreChangeListener(this); // remove listener so as not to trigger dead listener
     }
 }
