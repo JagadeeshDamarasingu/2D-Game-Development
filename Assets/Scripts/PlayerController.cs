@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+
 /// <summary>
 /// handles player animations, movements and collisions
 /// </summary>
@@ -8,11 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private float speed;
     [SerializeField] private float jump;
-    
+
     private Rigidbody2D _playerRigidbody2D;
     private static readonly int Speed = Animator.StringToHash("speed");
     private static readonly int DidCrouch = Animator.StringToHash("didCrouch");
     private static readonly int DidJump = Animator.StringToHash("didJump");
+    private static readonly int ShouldPlayDeathAnimation = Animator.StringToHash("shouldPlayDeathAnimation");
+
 
     private void Awake()
     {
@@ -32,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private void ApplyJumpMechanics(float jump)
     {
         animator.SetBool(DidJump, jump > 0);
-        if (jump >0)
+        if (jump > 0)
         {
             _playerRigidbody2D.AddForce(new Vector2(0f, this.jump), ForceMode2D.Force);
         }
@@ -57,5 +60,18 @@ public class PlayerController : MonoBehaviour
         var scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * horizontalSpeed < 0 ? -1f : 1f;
         transform.localScale = scale;
+    }
+
+
+    public void OnPlayerDead()
+    {
+        Debug.Log("OnPlayerDead");
+        animator.SetBool(ShouldPlayDeathAnimation, true);
+    }
+
+    private void OnDeathAnimationComplete()
+    {
+        Debug.Log("OnDeathAnimationComplete");
+        animator.SetBool(ShouldPlayDeathAnimation, false);
     }
 }

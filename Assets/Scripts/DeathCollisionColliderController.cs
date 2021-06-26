@@ -11,18 +11,7 @@ public class DeathCollisionColliderController : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<PlayerController>() != null)
-        {
-            if (GameManager.Instance.HasLivesRemaining())
-            {
-                GameManager.Instance.OnLifeLost();
-                SceneManager.LoadScene("MainScene");
-            }
-            else
-            {
-                GameManager.Instance.ResetCurrentLevel();
-                // TODO handle game over
-            }
-        }
+        if (other.gameObject.GetComponent<PlayerController>() == null) return;
+        GameManager.Instance.OnLifeLost();
     }
 }

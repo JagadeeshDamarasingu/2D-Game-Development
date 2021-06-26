@@ -87,12 +87,15 @@
     <Compile Include="Assets\2DGamekit\Utilities\DefaultPlayables\Video\VideoScriptPlayableTrack.cs" />
     <Compile Include="Assets\2DGamekit\Utilities\Standard Assets\Effects\ImageEffects\Scripts\BlurOptimized.cs" />
     <Compile Include="Assets\2DGamekit\Utilities\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
+    <Compile Include="Assets\Scripts\ChompEnemyController.cs" />
     <Compile Include="Assets\Scripts\DeathCollisionColliderController.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameMangerListener.cs" />
+    <Compile Include="Assets\Scripts\GameManager\ILivesCountChangeListener.cs" />
     <Compile Include="Assets\Scripts\GameManager\IScoreChangedListener.cs" />
     <Compile Include="Assets\Scripts\KeyController.cs" />
     <Compile Include="Assets\Scripts\LevelCompleteController.cs" />
+    <Compile Include="Assets\Scripts\LivesCountCardController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ScoreCardController.cs" />
     <None Include="Assets\2DGamekit\Utilities\Shaders\NormalMappedSprite-Animated.shader" />
