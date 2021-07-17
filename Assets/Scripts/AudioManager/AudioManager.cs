@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace AudioManager
 {
+/// <summary>
+/// Single ton class for Managing sounds across the game
+/// <summary>
     public class AudioManager : MonoBehaviour
     {
         public static AudioManager Instance { get; private set; }
@@ -29,6 +32,9 @@ namespace AudioManager
             Play(global::AudioManager.Sounds.BackGroundMusic, false);
         }
 
+/// <summary>
+/// Plays requested sound either oneShot or continuous
+/// <summary>
         public void Play(Sounds sound, Boolean oneShot)
         {
             var clip = GETSoundClip(sound);
@@ -47,6 +53,10 @@ namespace AudioManager
             }
         }
 
+/// <summary>
+/// finds the audio clip from array and returns it
+/// if not found returns null
+/// <summary>
         private AudioClip GETSoundClip(Sounds sound)
         {
             return Array.Find(Sounds, i => i.soundType == sound)?.soundClip;

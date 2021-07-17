@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace SoundManager
+namespace AudioManager
 {
     [Serializable]
     public class SoundType
