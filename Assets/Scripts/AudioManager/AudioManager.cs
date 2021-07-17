@@ -29,23 +29,32 @@ namespace AudioManager
 
         private void Start()
         {
-            Play(global::AudioManager.Sounds.BackGroundMusic, false);
+           PlayBGM();
+        }
+
+        public void PlayBGM(){
+         var clip = GETSoundClip(global::AudioManager.Sounds.BackGroundMusic);
+         if (clip != null)
+            {
+                soundMusic.clip = clip;
+                soundMusic.Play();
+            }
+            else
+            {
+                Debug.LogError("BGM not found ");
+            }
+
         }
 
 /// <summary>
 /// Plays requested sound either oneShot or continuous
 /// <summary>
-        public void Play(Sounds sound, Boolean oneShot)
+        public void Play(Sounds sound)
         {
             var clip = GETSoundClip(sound);
             if (clip != null)
             {
-                if(oneShot){
-                soundEffect.PlayOneShot(clip);
-                }else
-                {
-                    soundEffect.Play(clip);
-                }
+                   soundEffect.PlayOneShot(clip);
             }
             else
             {
