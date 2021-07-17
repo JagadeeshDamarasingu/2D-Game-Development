@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+///  a click controller for managing clicks on a level
+/// <summary>
 public class LevelClickController : MonoBehaviour
 {
 

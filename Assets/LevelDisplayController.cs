@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/// <summary>
+/// a controller for displaying level info into Level Prefab
+/// <summary>
 public class LevelDisplayController : MonoBehaviour
 {
 
